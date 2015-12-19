@@ -6,16 +6,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
+            condition = "providersData == [NSNull null]"
             continueAfterRunningActions = "No"
-            filePath = "GooglePolylineApp/PolylineEncoding/GPAPolylineEncoding.m"
-            timestampString = "471713950.908378"
+            filePath = "GooglePolylineApp/Data/GPARoute+Data.m"
+            timestampString = "472055483.36928"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "+coordinateElementFromChunk:"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "+routeWithRouteData:andProviders:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +26,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GooglePolylineApp/PolylineEncoding/GPAPolylineEncoding.m"
-            timestampString = "471713950.908378"
+            filePath = "GooglePolylineApp/MapViewController.m"
+            timestampString = "472223162.630175"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "+coordinateElementFromChunk:"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "+polylineWithSegment:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GooglePolylineApp/MapViewController.m"
+            timestampString = "472223171.850661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-mapView:rendererForOverlay:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GooglePolylineApp/MapViewController.m"
+            timestampString = "472223220.230325"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-mapView:rendererForOverlay:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

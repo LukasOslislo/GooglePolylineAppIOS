@@ -10,14 +10,14 @@
 
 @implementation GPAPolylineEncoding
 
-const int BIT_1 = 1;
-const int BIT_2 = 2;
-const int BIT_3 = 4;
-const int BIT_4 = 8;
-const int BIT_5 = 16;
-const int BIT_6 = 32;
-const int BIT_7 = 64;
-const int BIT_8 = 128;
+const int BIT_1 = 0b00000001;
+const int BIT_2 = 0b00000010;
+const int BIT_3 = 0b00000100;
+const int BIT_4 = 0b00001000;
+const int BIT_5 = 0b00010000;
+const int BIT_6 = 0b00100000;
+const int BIT_7 = 0b01000000;
+const int BIT_8 = 0b10000000;
 
 + (NSArray *)bitArray {
     static NSArray *bitArray = nil;
@@ -30,6 +30,10 @@ const int BIT_8 = 128;
 }
 
 + (NSArray<NSNumber *> *)decodePolyline: (NSString *)polylineString {
+    
+    if (polylineString == (id)[NSNull null] || polylineString.length == 0) {
+        return nil;
+    }
     
     NSMutableArray<NSNumber *> *latLongs = [[NSMutableArray alloc]init];
     NSMutableArray *currentChunk = [[NSMutableArray alloc]init];
@@ -76,7 +80,6 @@ const int BIT_8 = 128;
             
             if (isBitSet) {
                 int exponent = i+j*5;
-                NSLog(@"exponent: %u", exponent);
                 int intPos = powf(2, exponent);
                 
                 result |= intPos;
