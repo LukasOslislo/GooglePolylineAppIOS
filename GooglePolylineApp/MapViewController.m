@@ -10,12 +10,14 @@
 #import <MapKit/MapKit.h>
 #import "GPARouteSegment.h"
 #import "GPACoordinate.h"
+#import "UIHelpers/UIColor+Helper.h"
 
 @interface MapViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-@property (nonatomic, strong) NSMutableArray<MKPolylineRenderer *>* polylineRenderers;
+@property (nonatomic, strong) NSMutableArray<MKPolyline *>* polylines;
+@property (nonatomic, strong) NSMutableArray<UIColor*>* colors;
 
 @end
 
@@ -38,20 +40,19 @@
         return;
     }
     
-    self.polylineRenderers = [[NSMutableArray alloc]init];
+    self.polylines = [[NSMutableArray alloc]init];
+    self.colors = [[NSMutableArray alloc]init];
     
     for (GPARouteSegment *segment in self.route.segments) {
-        MKPolyline *polyline = [self.class polylineWithSegment:segment];
-        
-        [self.mapView addOverlay:polyline];
-        MKPolylineRenderer *polylineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:polyline];
-        [self.polylineRenderers addObject:polylineRenderer];
+        if (segment.coordinates.count >= 2) {
+            MKPolyline *polyline = [self.class polylineWithSegment:segment];
+            [self.polylines addObject:polyline];
+            [self.colors addObject:[UIColor colorFromHexString:segment.color]];
+            [self.mapView addOverlay:polyline];
+        }
     }
     
-    
-    
-//    [self.mapView setVisibleMapRect:[self.routeLine boundingMapRect]]; //If you want the route to be visible
-    
+    [self.mapView setVisibleMapRect:[self.polylines[0] boundingMapRect]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,8 +63,12 @@
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     
     if ([overlay isKindOfClass:[MKPolyline class]]) {
+        
+        MKPolyline *polyline = overlay;
+        NSUInteger index = [self.polylines indexOfObject:polyline];
+        
         MKPolylineRenderer *lineView = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
-        lineView.strokeColor = [UIColor redColor];
+        lineView.strokeColor = self.colors[index];
         
         
         return lineView;
@@ -75,7 +80,7 @@
 + (MKPolyline *)polylineWithSegment:(GPARouteSegment *)segment {
     
     NSUInteger coordinateArrayLength = segment.coordinates.count;
-    if (coordinateArrayLength == 0) {
+    if (coordinateArrayLength < 2) {
         return nil;
     }
     
@@ -89,15 +94,7 @@
     }
     
     MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinateArray count:coordinateArrayLength];
-//    NSString *hexString = segment.color;
-//    
-//    UIColor *color = [UIColor blueColor];
-//    
-//    if (hexString.length == 7) {
-//        color = [UIColor colorFromHexString:hexString];
-//    }
-//    
-//    routePolyline.lineColor = color;
+
     return polyline;
 }
 

@@ -13,6 +13,4 @@
 
 @property (nonatomic, strong)GPARoute *route;
 
-//- (instancetype)initWithRoute:(GPARoute *)route;
-
 @end

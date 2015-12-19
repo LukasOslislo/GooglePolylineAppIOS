@@ -13,13 +13,18 @@
 /**
  *  Helper method to create UIColor from hex string.
  *
- *  Source: http://stackoverflow.com/a/12397366/1374488
+ *  Simplified source: http://stackoverflow.com/a/12397366/1374488
  *
  *  @param hexString string in format: @"#RRGGBB"
  *
  *  @return UIColor from string
  */
 + (UIColor *)colorFromHexString:(NSString *)hexString {
+    
+    if (hexString.length != 7) {
+        return [UIColor redColor];
+    }
+    
     unsigned rgbValue = 0;
     NSScanner *scanner = [NSScanner scannerWithString:hexString];
     [scanner setScanLocation:1]; // bypass '#' character
