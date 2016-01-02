@@ -31,7 +31,6 @@
 		D091DFB11C1AF31000310430 /* GPAPolylineEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DFB01C1AF31000310430 /* GPAPolylineEncoding.m */; };
 		D0A28D101C22FD4100C1C3DA /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A28D0F1C22FD4100C1C3DA /* NSDictionary+Safe.m */; };
 		D0A28D131C23197100C1C3DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A28D111C23197100C1C3DA /* Main.storyboard */; };
-		D0A28D1E1C281D6E00C1C3DA /* GPABoundingBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A28D1D1C281D6D00C1C3DA /* GPABoundingBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,8 +97,6 @@
 		D0A28D0E1C22FD4100C1C3DA /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safe.h"; path = "Data/NSDictionary+Safe.h"; sourceTree = "<group>"; };
 		D0A28D0F1C22FD4100C1C3DA /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safe.m"; path = "Data/NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		D0A28D121C23197100C1C3DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D0A28D1C1C281D6D00C1C3DA /* GPABoundingBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPABoundingBox.h; path = ModelTypes/GPABoundingBox.h; sourceTree = "<group>"; };
-		D0A28D1D1C281D6D00C1C3DA /* GPABoundingBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPABoundingBox.m; path = ModelTypes/GPABoundingBox.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +169,6 @@
 				D0267B3F1C2062EE003E751C /* GPARoute.m */,
 				D0267B441C21BB8E003E751C /* GPAProvider.h */,
 				D0267B451C21BB8E003E751C /* GPAProvider.m */,
-				D0A28D1C1C281D6D00C1C3DA /* GPABoundingBox.h */,
-				D0A28D1D1C281D6D00C1C3DA /* GPABoundingBox.m */,
 			);
 			name = ModelTypes;
 			sourceTree = "<group>";
@@ -417,7 +412,6 @@
 				D0267B491C21BC12003E751C /* GPAProvider+Data.m in Sources */,
 				D091DFB11C1AF31000310430 /* GPAPolylineEncoding.m in Sources */,
 				D0222B291C1DF9EC00591B7F /* MapViewController.m in Sources */,
-				D0A28D1E1C281D6E00C1C3DA /* GPABoundingBox.m in Sources */,
 				D0267B461C21BB8E003E751C /* GPAProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

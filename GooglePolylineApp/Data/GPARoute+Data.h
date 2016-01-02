@@ -3,7 +3,6 @@
 //  GooglePolylineApp
 //
 //  Created by Lukas Oslislo on 15/12/15.
-//  Copyright © 2015 Lukas Oslislo. All rights reserved.
 //
 
 #import "GPARoute.h"

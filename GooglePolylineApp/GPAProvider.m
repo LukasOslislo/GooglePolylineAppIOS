@@ -3,7 +3,6 @@
 //  GooglePolylineApp
 //
 //  Created by Lukas Oslislo on 16/12/15.
-//  Copyright © 2015 Lukas Oslislo. All rights reserved.
 //
 
 #import "GPAProvider.h"

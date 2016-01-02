@@ -3,7 +3,6 @@
 //  GooglePolylineApp
 //
 //  Created by Lukas Oslislo on 16/12/15.
-//  Copyright © 2015 Lukas Oslislo. All rights reserved.
 //
 
 #import "GPARouteSegment+Data.h"
@@ -16,6 +15,8 @@
 
 @property (nonatomic, strong, readwrite) NSArray<GPACoordinate *> *coordinates;
 @property (nonatomic, strong, readwrite) NSString *color;
+@property (nonatomic, strong, readwrite) NSString *segmentName;
+@property (nonatomic, strong, readwrite) NSString *travelMode;
 
 @end
 
@@ -25,6 +26,8 @@
     GPARouteSegment *routeSegment = [[GPARouteSegment alloc]init];
     routeSegment.coordinates = [GPARouteSegment rawDataToCoordinates: [data safeObjectForKey:@"polyline"]];
     routeSegment.color = [data safeObjectForKey:@"color"];
+    routeSegment.segmentName = [data safeObjectForKey:@"name"];
+    routeSegment.travelMode = [data safeObjectForKey:@"travel_mode"];
     
     return routeSegment;
 }

@@ -3,7 +3,6 @@
 //  GooglePolylineApp
 //
 //  Created by Lukas Oslislo on 15/12/15.
-//  Copyright © 2015 Lukas Oslislo. All rights reserved.
 //
 
 #import "GPARoute+Data.h"
@@ -17,7 +16,7 @@
 @interface GPARoute ()
 
 @property (nonatomic, strong, readwrite) GPAProvider * provider;
-@property (nonatomic, readwrite) GPARouteType type;
+@property (nonatomic, readwrite) GPARouteType routeType;
 @property (nonatomic, strong, readwrite) NSArray<GPARouteSegment *> * segments;
 @property (nonatomic, readwrite) NSString * price;
 
@@ -30,7 +29,7 @@
     
     
     route.provider = [GPAProvider providerWithKey:[routeData safeObjectForKey:@"provider"] andProvidersData:providersData];
-    route.type = [GPARoute typeFromString:[routeData safeObjectForKey:@"type"]];
+    route.routeType = [GPARoute typeFromString:[routeData safeObjectForKey:@"type"]];
     route.segments = [GPARoute segmentsFromData:[routeData safeObjectForKey:@"segments"]];
     
     NSDictionary *priceData = [routeData safeObjectForKey:@"price"];

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,30 +21,57 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XG6-VY-efW" id="zao-8Y-C3w">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Provider name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYe-k3-YOv">
-                                            <rect key="frame" x="23" y="11" width="150" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provider name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYe-k3-YOv">
+                                            <rect key="frame" x="8" y="11" width="260" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZb-mN-YuV">
-                                            <rect key="frame" x="259" y="11" width="101" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="12.99 EUR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZb-mN-YuV">
+                                            <rect key="frame" x="332" y="11" width="260" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provider" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-s6-caA">
+                                            <rect key="frame" x="268" y="11" width="64" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LZb-mN-YuV" secondAttribute="trailing" id="6Du-Ye-OPt"/>
+                                        <constraint firstItem="bYe-k3-YOv" firstAttribute="leading" secondItem="zao-8Y-C3w" secondAttribute="leadingMargin" id="BRv-0x-mA1"/>
+                                        <constraint firstItem="LZb-mN-YuV" firstAttribute="leading" secondItem="gHC-s6-caA" secondAttribute="trailing" id="Bkv-3t-LFz"/>
+                                        <constraint firstItem="gHC-s6-caA" firstAttribute="centerY" secondItem="zao-8Y-C3w" secondAttribute="centerY" id="J8y-tg-ibF"/>
+                                        <constraint firstItem="gHC-s6-caA" firstAttribute="firstBaseline" secondItem="bYe-k3-YOv" secondAttribute="firstBaseline" id="NWx-HT-SNT"/>
+                                        <constraint firstItem="bYe-k3-YOv" firstAttribute="width" secondItem="LZb-mN-YuV" secondAttribute="width" id="PAb-pG-2bq"/>
+                                        <constraint firstItem="LZb-mN-YuV" firstAttribute="width" secondItem="gHC-s6-caA" secondAttribute="width" id="RAh-0Z-3kN"/>
+                                        <constraint firstItem="gHC-s6-caA" firstAttribute="top" secondItem="zao-8Y-C3w" secondAttribute="topMargin" constant="3" id="bx2-Yl-9oY"/>
+                                        <constraint firstItem="gHC-s6-caA" firstAttribute="firstBaseline" secondItem="LZb-mN-YuV" secondAttribute="firstBaseline" id="kPI-LM-91L"/>
+                                        <constraint firstItem="gHC-s6-caA" firstAttribute="baseline" secondItem="bYe-k3-YOv" secondAttribute="baseline" id="tvn-HV-zfa"/>
+                                        <constraint firstItem="gHC-s6-caA" firstAttribute="baseline" secondItem="LZb-mN-YuV" secondAttribute="baseline" id="vhS-IO-NOF"/>
+                                        <constraint firstItem="gHC-s6-caA" firstAttribute="leading" secondItem="bYe-k3-YOv" secondAttribute="trailing" id="x8i-jx-UCv"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="RAh-0Z-3kN"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
                                     <outlet property="routeNameLabel" destination="bYe-k3-YOv" id="rOz-GT-Mxk"/>
                                     <outlet property="routePriceLabel" destination="LZb-mN-YuV" id="60V-cd-Kjw"/>
+                                    <outlet property="routeProvider" destination="gHC-s6-caA" id="pvJ-dO-avW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -52,18 +80,16 @@
                             <outlet property="delegate" destination="K16-c4-Lg7" id="lvf-48-kAJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List" id="UFc-9h-nZj">
-                        <barButtonItem key="backBarButtonItem" title="back!" id="3b5-uN-yCX"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Routes" id="UFc-9h-nZj"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYS-v7-S8I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1001" y="-374"/>
         </scene>
-        <!--MapV-->
+        <!--MapView-->
         <scene sceneID="hT8-Ay-wJF">
             <objects>
-                <viewController storyboardIdentifier="MapView" title="MapV" id="85e-Pn-3ce" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapView" title="MapView" id="85e-Pn-3ce" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bLI-zr-2dz"/>
                         <viewControllerLayoutGuide type="bottom" id="vwN-7t-yTU"/>
@@ -86,9 +112,7 @@
                             <constraint firstItem="hcY-AR-3BY" firstAttribute="top" secondItem="bLI-zr-2dz" secondAttribute="bottom" constant="-20" id="vji-75-zLC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title46" id="z6C-rk-OUJ">
-                        <barButtonItem key="backBarButtonItem" title="back123" id="gt9-LO-vNz"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Route" id="z6C-rk-OUJ" userLabel="Route"/>
                     <connections>
                         <outlet property="mapView" destination="hcY-AR-3BY" id="uOR-ph-Lvp"/>
                     </connections>
@@ -111,8 +135,8 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LNB-LI-ugk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationItem title="Title56" id="95C-lu-u6o">
-                    <barButtonItem key="backBarButtonItem" title="backk" id="RhW-Wy-lsd"/>
+                <navigationItem id="95C-lu-u6o">
+                    <barButtonItem key="backBarButtonItem" id="RhW-Wy-lsd"/>
                 </navigationItem>
             </objects>
             <point key="canvasLocation" x="263" y="-374"/>

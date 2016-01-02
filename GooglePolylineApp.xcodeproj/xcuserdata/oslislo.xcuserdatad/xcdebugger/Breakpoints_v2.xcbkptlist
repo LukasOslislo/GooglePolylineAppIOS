@@ -8,23 +8,6 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            condition = "providersData == [NSNull null]"
-            continueAfterRunningActions = "No"
-            filePath = "GooglePolylineApp/Data/GPARoute+Data.m"
-            timestampString = "472055483.36928"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "+routeWithRouteData:andProviders:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GooglePolylineApp/ModelTypes/GPABoundingBox.m"
             timestampString = "473427774.18681"

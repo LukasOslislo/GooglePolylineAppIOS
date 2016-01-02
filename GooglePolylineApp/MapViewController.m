@@ -3,7 +3,6 @@
 //  GooglePolylineApp
 //
 //  Created by Lukas Oslislo on 13/12/15.
-//  Copyright © 2015 Lukas Oslislo. All rights reserved.
 //
 
 #import "MapViewController.h"
@@ -11,7 +10,6 @@
 #import "GPARouteSegment.h"
 #import "GPACoordinate.h"
 #import "Helpers/UIColor+Helper.h"
-#import "GPABoundingBox.h"
 #import "GPACoordinate+Converter.h"
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -20,6 +18,8 @@
 
 @property (nonatomic, strong) NSMutableArray<MKPolyline *>* polylines;
 @property (nonatomic, strong) NSMutableArray<UIColor*>* colors;
+
+@property (nonatomic, strong) NSMutableArray *annotations;
 
 @end
 
@@ -48,7 +48,7 @@
     
     for (GPARouteSegment *segment in self.route.segments) {
         if (segment.coordinates.count >= 2) {
-            MKPolyline *polyline = [self.class polylineWithSegment:segment];
+            MKPolyline *polyline = [self polylineWithSegment:segment];
             [self.polylines addObject:polyline];
             [self.colors addObject:[UIColor colorFromHexString:segment.color]];
             [self.mapView addOverlay:polyline];
@@ -57,27 +57,7 @@
 }
 
 - (void)focusRoute {
-    GPABoundingBox *routeBoundingBox = self.route.boundingBox;
-    
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    [annotation setCoordinate:self.route.boundingBox.topLeft.location];
-    [annotation setTitle:@"TL"]; //You can set the subtitle too
-    [self.mapView addAnnotation:annotation];
-    
-    MKPointAnnotation *annotationB = [[MKPointAnnotation alloc] init];
-    [annotationB setCoordinate:self.route.boundingBox.bottomRight.location];
-    [annotationB setTitle:@"BR"]; //You can set the subtitle too
-    [self.mapView addAnnotation:annotationB];
-    
-    CLLocationCoordinate2D minCoord = CLLocationCoordinate2DMake(routeBoundingBox.topLeft.latitude, routeBoundingBox.topLeft.longitude);
-    CLLocationCoordinate2D maxCoord = CLLocationCoordinate2DMake(routeBoundingBox.bottomRight.latitude, routeBoundingBox.bottomRight.longitude);
-    
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((minCoord.latitude+maxCoord.latitude)/2.0, (minCoord.longitude+maxCoord.longitude)/2.0);
-    MKCoordinateSpan span = MKCoordinateSpanMake(maxCoord.latitude - minCoord.latitude, maxCoord.longitude - minCoord.longitude);
-    MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
-    MKCoordinateRegion fittingRegion = [self.mapView regionThatFits:region];
-    
-    [self.mapView setRegion:fittingRegion];
+    [self.mapView showAnnotations:self.mapView.annotations animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,6 +70,7 @@
     if ([overlay isKindOfClass:[MKPolyline class]]) {
         
         MKPolyline *polyline = overlay;
+        
         NSUInteger index = [self.polylines indexOfObject:polyline];
         
         MKPolylineRenderer *lineView = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
@@ -102,7 +83,7 @@
     return nil;
 }
 
-+ (MKPolyline *)polylineWithSegment:(GPARouteSegment *)segment {
+- (MKPolyline *)polylineWithSegment:(GPARouteSegment *)segment {
     
     NSUInteger coordinateArrayLength = segment.coordinates.count;
     if (coordinateArrayLength < 2) {
@@ -113,9 +94,19 @@
     
     for (int i = 0; i < coordinateArrayLength; i++) {
         GPACoordinate *coordinate = segment.coordinates[i];
-        CLLocationCoordinate2D c = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
         
-        coordinateArray[i] = c;
+        coordinateArray[i] = coordinate.location;
+        
+        if (i == 0 || i == coordinateArrayLength-1) {
+            
+            NSString *nameAddition = i == 0 ? @"START" : @"END";
+            
+            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+            [annotation setCoordinate:coordinate.location];
+            [annotation setTitle: [NSString stringWithFormat:@"%@ - %@", segment.travelMode, nameAddition]];
+            [annotation setSubtitle:segment.segmentName];
+            [self.mapView addAnnotation:annotation];
+        }
     }
     
     MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinateArray count:coordinateArrayLength];

@@ -3,7 +3,6 @@
 //  GooglePolylineApp
 //
 //  Created by Lukas Oslislo on 16/12/15.
-//  Copyright © 2015 Lukas Oslislo. All rights reserved.
 //
 
 #import "GPAProvider+Data.h"
@@ -14,6 +13,7 @@
 
 @property (nonatomic, strong, readwrite) NSString *name;
 @property (nonatomic, strong, readwrite) NSString *iconUrl;
+@property (nonatomic, strong, readwrite) NSString *type;
 
 @end
 
@@ -27,6 +27,7 @@
     NSString *providerName = [providerData safeObjectForKey:@"display_name"];
     provider.name = providerName ? providerName : providerKey;
     provider.iconUrl = [providerData safeObjectForKey:@"provider_icon_url"];
+    
     
     return provider;
 }
