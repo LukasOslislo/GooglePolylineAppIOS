@@ -44,7 +44,7 @@
     
     for (int i = 2; i < polylineElements.count; i+=2) {
         
-        NSNumber *lat = polylineElements[i];
+        NSNumber *lat = polylineElements[i-2];
         NSNumber *lon = polylineElements[i-1];
         
         GPACoordinate *coordinate = [[GPACoordinate alloc]initWithLatitude:lat.doubleValue andLongitude:lon.doubleValue];
