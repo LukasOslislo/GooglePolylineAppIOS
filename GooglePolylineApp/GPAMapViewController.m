@@ -1,18 +1,18 @@
 //
-//  MapViewController.m
+//  GPAMapViewController.m
 //  GooglePolylineApp
 //
 //  Created by Lukas Oslislo on 13/12/15.
 //
 
-#import "MapViewController.h"
+#import "GPAMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "GPARouteSegment.h"
 #import "GPACoordinate.h"
 #import "Helpers/UIColor+Helper.h"
 #import "GPACoordinate+Converter.h"
 
-@interface MapViewController () <MKMapViewDelegate>
+@interface GPAMapViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation MapViewController
+@implementation GPAMapViewController
 
 
 - (void)viewDidLoad {

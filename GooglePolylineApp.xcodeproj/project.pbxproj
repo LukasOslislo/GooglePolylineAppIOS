@@ -11,9 +11,9 @@
 		D0222AD11C1DDBC400591B7F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D062742E1C1DDB2000E6F07C /* MapKit.framework */; };
 		D0222AD41C1DDD0B00591B7F /* GPARouteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0222AD31C1DDD0B00591B7F /* GPARouteRequest.m */; };
 		D0222AD81C1DDDF900591B7F /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D0222AD71C1DDDF900591B7F /* data.json */; };
-		D0222ADE1C1DDF5A00591B7F /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0222ADD1C1DDF5A00591B7F /* MainTableViewController.m */; };
-		D0222AE41C1DE0C900591B7F /* RouteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0222AE31C1DE0C900591B7F /* RouteTableViewCell.m */; };
-		D0222B291C1DF9EC00591B7F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0222B281C1DF9EC00591B7F /* MapViewController.m */; };
+		D0222ADE1C1DDF5A00591B7F /* GPAMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0222ADD1C1DDF5A00591B7F /* GPAMainTableViewController.m */; };
+		D0222AE41C1DE0C900591B7F /* GPARouteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0222AE31C1DE0C900591B7F /* GPARouteTableViewCell.m */; };
+		D0222B291C1DF9EC00591B7F /* GPAMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0222B281C1DF9EC00591B7F /* GPAMapViewController.m */; };
 		D0267B3A1C204794003E751C /* GPARouteSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = D0267B391C204794003E751C /* GPARouteSegment.m */; };
 		D0267B3D1C204D27003E751C /* GPACoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0267B3C1C204D27003E751C /* GPACoordinate.m */; };
 		D0267B401C2062EE003E751C /* GPARoute.m in Sources */ = {isa = PBXBuildFile; fileRef = D0267B3F1C2062EE003E751C /* GPARoute.m */; };
@@ -55,12 +55,12 @@
 		D0222AD21C1DDD0B00591B7F /* GPARouteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPARouteRequest.h; path = RouteRequest/GPARouteRequest.h; sourceTree = "<group>"; };
 		D0222AD31C1DDD0B00591B7F /* GPARouteRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPARouteRequest.m; path = RouteRequest/GPARouteRequest.m; sourceTree = "<group>"; };
 		D0222AD71C1DDDF900591B7F /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = Data/data.json; sourceTree = "<group>"; };
-		D0222ADC1C1DDF5A00591B7F /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewController.h; path = ../MainTableViewController.h; sourceTree = "<group>"; };
-		D0222ADD1C1DDF5A00591B7F /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewController.m; path = ../MainTableViewController.m; sourceTree = "<group>"; };
-		D0222AE21C1DE0C900591B7F /* RouteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteTableViewCell.h; sourceTree = "<group>"; };
-		D0222AE31C1DE0C900591B7F /* RouteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteTableViewCell.m; sourceTree = "<group>"; };
-		D0222B271C1DF9EC00591B7F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		D0222B281C1DF9EC00591B7F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		D0222ADC1C1DDF5A00591B7F /* GPAMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPAMainTableViewController.h; path = ../GPAMainTableViewController.h; sourceTree = "<group>"; };
+		D0222ADD1C1DDF5A00591B7F /* GPAMainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPAMainTableViewController.m; path = ../GPAMainTableViewController.m; sourceTree = "<group>"; };
+		D0222AE21C1DE0C900591B7F /* GPARouteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPARouteTableViewCell.h; sourceTree = "<group>"; };
+		D0222AE31C1DE0C900591B7F /* GPARouteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPARouteTableViewCell.m; sourceTree = "<group>"; };
+		D0222B271C1DF9EC00591B7F /* GPAMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPAMapViewController.h; sourceTree = "<group>"; };
+		D0222B281C1DF9EC00591B7F /* GPAMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPAMapViewController.m; sourceTree = "<group>"; };
 		D0267B381C204794003E751C /* GPARouteSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPARouteSegment.h; path = ModelTypes/GPARouteSegment.h; sourceTree = "<group>"; };
 		D0267B391C204794003E751C /* GPARouteSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPARouteSegment.m; path = ModelTypes/GPARouteSegment.m; sourceTree = "<group>"; };
 		D0267B3B1C204D27003E751C /* GPACoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPACoordinate.h; path = ModelTypes/GPACoordinate.h; sourceTree = "<group>"; };
@@ -204,17 +204,17 @@
 				D0222AD51C1DDD1500591B7F /* RouteRequest */,
 				D091DF7E1C1AF25700310430 /* AppDelegate.h */,
 				D091DF7F1C1AF25700310430 /* AppDelegate.m */,
-				D0222ADC1C1DDF5A00591B7F /* MainTableViewController.h */,
-				D0222ADD1C1DDF5A00591B7F /* MainTableViewController.m */,
+				D0222ADC1C1DDF5A00591B7F /* GPAMainTableViewController.h */,
+				D0222ADD1C1DDF5A00591B7F /* GPAMainTableViewController.m */,
 				D091DF871C1AF25700310430 /* Assets.xcassets */,
 				D0A28D111C23197100C1C3DA /* Main.storyboard */,
 				D091DF891C1AF25700310430 /* LaunchScreen.storyboard */,
 				D091DF8C1C1AF25700310430 /* Info.plist */,
 				D091DF7B1C1AF25700310430 /* Supporting Files */,
-				D0222AE21C1DE0C900591B7F /* RouteTableViewCell.h */,
-				D0222AE31C1DE0C900591B7F /* RouteTableViewCell.m */,
-				D0222B271C1DF9EC00591B7F /* MapViewController.h */,
-				D0222B281C1DF9EC00591B7F /* MapViewController.m */,
+				D0222AE21C1DE0C900591B7F /* GPARouteTableViewCell.h */,
+				D0222AE31C1DE0C900591B7F /* GPARouteTableViewCell.m */,
+				D0222B271C1DF9EC00591B7F /* GPAMapViewController.h */,
+				D0222B281C1DF9EC00591B7F /* GPAMapViewController.m */,
 			);
 			path = GooglePolylineApp;
 			sourceTree = "<group>";
@@ -397,7 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0222AD41C1DDD0B00591B7F /* GPARouteRequest.m in Sources */,
-				D0222AE41C1DE0C900591B7F /* RouteTableViewCell.m in Sources */,
+				D0222AE41C1DE0C900591B7F /* GPARouteTableViewCell.m in Sources */,
 				D0267B401C2062EE003E751C /* GPARoute.m in Sources */,
 				D0267B431C206D48003E751C /* GPARoute+Data.m in Sources */,
 				D0A28D101C22FD4100C1C3DA /* NSDictionary+Safe.m in Sources */,
@@ -408,10 +408,10 @@
 				D0267B3D1C204D27003E751C /* GPACoordinate.m in Sources */,
 				D0267B4C1C21C11A003E751C /* GPARouteSegment+Data.m in Sources */,
 				D058F2781C36BDBD00231EF1 /* UIColor+Helper.m in Sources */,
-				D0222ADE1C1DDF5A00591B7F /* MainTableViewController.m in Sources */,
+				D0222ADE1C1DDF5A00591B7F /* GPAMainTableViewController.m in Sources */,
 				D0267B491C21BC12003E751C /* GPAProvider+Data.m in Sources */,
 				D091DFB11C1AF31000310430 /* GPAPolylineEncoding.m in Sources */,
-				D0222B291C1DF9EC00591B7F /* MapViewController.m in Sources */,
+				D0222B291C1DF9EC00591B7F /* GPAMapViewController.m in Sources */,
 				D0267B461C21BB8E003E751C /* GPAProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

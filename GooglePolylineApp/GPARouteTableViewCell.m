@@ -1,13 +1,13 @@
 //
-//  RouteTableViewCell.m
+//  GPARouteTableViewCell.m
 //  GooglePolylineApp
 //
 //  Created by Lukas Oslislo on 13/12/15.
 //
 
-#import "RouteTableViewCell.h"
+#import "GPARouteTableViewCell.h"
 
-@implementation RouteTableViewCell
+@implementation GPARouteTableViewCell
 
 - (void)awakeFromNib {
 }

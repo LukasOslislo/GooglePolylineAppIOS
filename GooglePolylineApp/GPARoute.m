@@ -7,6 +7,12 @@
 
 #import "GPARoute.h"
 
+static NSString* const routeTypePT = @"Public Transport";
+static NSString* const routeTypeCarSharing = @"Car Sharing";
+static NSString* const routeTypeBike = @"Bike";
+static NSString* const routeTypeBikeSharing = @"Public Transport";
+static NSString* const routeTypeTaxi = @"Taxi";
+
 @interface GPARoute ()
 
 @property (nonatomic, strong, readwrite) GPAProvider * provider;
@@ -24,23 +30,23 @@
     
     switch (routeType) {
         case GPARouteTypePT:
-            typeString = @"Public Transport";
+            typeString = routeTypePT;
             break;
             
         case GPARouteTypeCarSharing:
-            typeString = @"Car Sharing";
+            typeString = routeTypeCarSharing;
             break;
             
         case GPARouteTypePrivateBike:
-            typeString = @"Bike";
+            typeString = routeTypeBike;
             break;
             
         case GPARouteTypeBikeSharing:
-            typeString = @"Bike Sharing";
+            typeString = routeTypeBikeSharing;
             break;
             
         case GPARouteTypeTaxi:
-            typeString = @"Taxi";
+            typeString = routeTypeTaxi;
             break;
     }
     
