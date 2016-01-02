@@ -7,6 +7,7 @@
 //
 
 #import "GPARoute.h"
+#import "GPABoundingBox.h"
 
 @interface GPARoute ()
 
@@ -18,5 +19,15 @@
 @end
 
 @implementation GPARoute
+
+- (GPABoundingBox *)boundingBox {
+    static GPABoundingBox *_boundingBox = nil;
+    
+    if (!_boundingBox) {
+        _boundingBox = [GPABoundingBox boundingBoxWithRoute:self];
+    }
+    
+    return _boundingBox;
+}
 
 @end

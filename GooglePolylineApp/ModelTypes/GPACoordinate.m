@@ -8,13 +8,6 @@
 
 #import "GPACoordinate.h"
 
-@interface GPACoordinate ()
-
-@property (readwrite) double latitude;
-@property (readwrite) double longitude;
-
-@end
-
 @implementation GPACoordinate
 
 - (instancetype)initWithLatitude:(double)lat andLongitude:(double)lon {
@@ -23,6 +16,11 @@
         _longitude = lon;
     }
     return self;
+}
+
+- (GPACoordinate *)copy {
+    GPACoordinate *copied = [[GPACoordinate alloc]initWithLatitude:self.latitude andLongitude:self.longitude];
+    return copied;
 }
 
 @end

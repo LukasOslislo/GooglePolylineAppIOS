@@ -10,7 +10,9 @@
 #import <MapKit/MapKit.h>
 #import "GPARouteSegment.h"
 #import "GPACoordinate.h"
-#import "UIHelpers/UIColor+Helper.h"
+#import "Helpers/UIColor+Helper.h"
+#import "GPABoundingBox.h"
+#import "GPACoordinate+Converter.h"
 
 @interface MapViewController () <MKMapViewDelegate>
 
@@ -26,15 +28,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.mapView.delegate = self;
-    
     [self drawRoute];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [self focusRoute];
+}
+
 - (void)drawRoute {
-//    initialize your map view and add it to your view hierarchy - **set its delegate to self***
     
     if (!self.route || self.route.segments.count == 0) {
         return;
@@ -51,8 +54,30 @@
             [self.mapView addOverlay:polyline];
         }
     }
+}
+
+- (void)focusRoute {
+    GPABoundingBox *routeBoundingBox = self.route.boundingBox;
     
-    [self.mapView setVisibleMapRect:[self.polylines[0] boundingMapRect]];
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    [annotation setCoordinate:self.route.boundingBox.topLeft.location];
+    [annotation setTitle:@"TL"]; //You can set the subtitle too
+    [self.mapView addAnnotation:annotation];
+    
+    MKPointAnnotation *annotationB = [[MKPointAnnotation alloc] init];
+    [annotationB setCoordinate:self.route.boundingBox.bottomRight.location];
+    [annotationB setTitle:@"BR"]; //You can set the subtitle too
+    [self.mapView addAnnotation:annotationB];
+    
+    CLLocationCoordinate2D minCoord = CLLocationCoordinate2DMake(routeBoundingBox.topLeft.latitude, routeBoundingBox.topLeft.longitude);
+    CLLocationCoordinate2D maxCoord = CLLocationCoordinate2DMake(routeBoundingBox.bottomRight.latitude, routeBoundingBox.bottomRight.longitude);
+    
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((minCoord.latitude+maxCoord.latitude)/2.0, (minCoord.longitude+maxCoord.longitude)/2.0);
+    MKCoordinateSpan span = MKCoordinateSpanMake(maxCoord.latitude - minCoord.latitude, maxCoord.longitude - minCoord.longitude);
+    MKCoordinateRegion region = MKCoordinateRegionMake (center, span);
+    MKCoordinateRegion fittingRegion = [self.mapView regionThatFits:region];
+    
+    [self.mapView setRegion:fittingRegion];
 }
 
 - (void)didReceiveMemoryWarning {

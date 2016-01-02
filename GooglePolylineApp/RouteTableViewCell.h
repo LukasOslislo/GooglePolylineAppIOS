@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RouteTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *routeNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *routePriceLabel;
 
 @end

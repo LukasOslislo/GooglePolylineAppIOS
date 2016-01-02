@@ -12,6 +12,7 @@
 @implementation GPARouteRequest
 
 -(void)fetchRoutesWithCallback:(void(^)(NSArray <GPARoute *>*result))callback {
+    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"data.json" ofType:nil];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];

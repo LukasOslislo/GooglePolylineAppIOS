@@ -10,6 +10,7 @@
 
 @class GPAProvider;
 @class GPARouteSegment;
+@class GPABoundingBox;
 
 typedef enum {
     GPARouteTypePT,
@@ -22,9 +23,10 @@ typedef enum {
 
 @interface GPARoute : NSObject
 
-@property (nonatomic, strong, readonly) GPAProvider * provider;
 @property (nonatomic, readonly) GPARouteType type;
+@property (nonatomic, strong, readonly) GPAProvider * provider;
 @property (nonatomic, strong, readonly) NSArray<GPARouteSegment *> * segments;
-@property (nonatomic, readonly) NSString * price;
+@property (nonatomic, strong, readonly) NSString * price;
+@property (nonatomic, strong, readonly) GPABoundingBox *boundingBox;
 
 @end

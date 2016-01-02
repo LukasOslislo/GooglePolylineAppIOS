@@ -10,8 +10,8 @@
 
 @interface GPACoordinate : NSObject
 
-@property (readonly) double latitude;
-@property (readonly) double longitude;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
 
 - (instancetype)initWithLatitude:(double)lat andLongitude:(double)lon;
 

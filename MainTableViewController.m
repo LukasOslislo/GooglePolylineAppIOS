@@ -70,7 +70,7 @@
     RouteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"routeCell" forIndexPath:indexPath];
     GPARoute *route = self.routes[indexPath.row];
     cell.routeNameLabel.text = route.provider.name;
-    // Configure the cell...
+    cell.routePriceLabel.text = route.price;
     
     return cell;
 }
@@ -78,7 +78,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     GPARoute *selectedRoute = self.routes[indexPath.row];
-    
     
     UIStoryboard * storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MapViewController * mapVC = [storyboard instantiateViewControllerWithIdentifier:@"MapView"];

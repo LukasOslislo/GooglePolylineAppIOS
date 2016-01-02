@@ -21,16 +21,17 @@
 		D0267B461C21BB8E003E751C /* GPAProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D0267B451C21BB8E003E751C /* GPAProvider.m */; };
 		D0267B491C21BC12003E751C /* GPAProvider+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = D0267B481C21BC12003E751C /* GPAProvider+Data.m */; };
 		D0267B4C1C21C11A003E751C /* GPARouteSegment+Data.m in Sources */ = {isa = PBXBuildFile; fileRef = D0267B4B1C21C11A003E751C /* GPARouteSegment+Data.m */; };
+		D058F2781C36BDBD00231EF1 /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F2771C36BDBD00231EF1 /* UIColor+Helper.m */; };
+		D058F27B1C37EBBC00231EF1 /* GPACoordinate+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = D058F27A1C37EBBC00231EF1 /* GPACoordinate+Converter.m */; };
 		D091DF7D1C1AF25700310430 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DF7C1C1AF25700310430 /* main.m */; };
 		D091DF801C1AF25700310430 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DF7F1C1AF25700310430 /* AppDelegate.m */; };
 		D091DF881C1AF25700310430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D091DF871C1AF25700310430 /* Assets.xcassets */; };
 		D091DF8B1C1AF25700310430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D091DF891C1AF25700310430 /* LaunchScreen.storyboard */; };
-		D091DF961C1AF25800310430 /* GooglePolylineAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DF951C1AF25800310430 /* GooglePolylineAppTests.m */; };
 		D091DFA11C1AF25800310430 /* GooglePolylineAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DFA01C1AF25800310430 /* GooglePolylineAppUITests.m */; };
 		D091DFB11C1AF31000310430 /* GPAPolylineEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DFB01C1AF31000310430 /* GPAPolylineEncoding.m */; };
 		D0A28D101C22FD4100C1C3DA /* NSDictionary+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A28D0F1C22FD4100C1C3DA /* NSDictionary+Safe.m */; };
 		D0A28D131C23197100C1C3DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A28D111C23197100C1C3DA /* Main.storyboard */; };
-		D0A28D1B1C2577F900C1C3DA /* UIColor+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A28D1A1C2577F900C1C3DA /* UIColor+Helper.m */; };
+		D0A28D1E1C281D6E00C1C3DA /* GPABoundingBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A28D1D1C281D6D00C1C3DA /* GPABoundingBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,10 @@
 		D0267B481C21BC12003E751C /* GPAProvider+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GPAProvider+Data.m"; path = "Data/GPAProvider+Data.m"; sourceTree = "<group>"; };
 		D0267B4A1C21C11A003E751C /* GPARouteSegment+Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GPARouteSegment+Data.h"; path = "Data/GPARouteSegment+Data.h"; sourceTree = "<group>"; };
 		D0267B4B1C21C11A003E751C /* GPARouteSegment+Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GPARouteSegment+Data.m"; path = "Data/GPARouteSegment+Data.m"; sourceTree = "<group>"; };
+		D058F2761C36BDBD00231EF1 /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Helper.h"; path = "Helpers/UIColor+Helper.h"; sourceTree = "<group>"; };
+		D058F2771C36BDBD00231EF1 /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Helper.m"; path = "Helpers/UIColor+Helper.m"; sourceTree = "<group>"; };
+		D058F2791C37EBBC00231EF1 /* GPACoordinate+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GPACoordinate+Converter.h"; path = "Helpers/GPACoordinate+Converter.h"; sourceTree = "<group>"; };
+		D058F27A1C37EBBC00231EF1 /* GPACoordinate+Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GPACoordinate+Converter.m"; path = "Helpers/GPACoordinate+Converter.m"; sourceTree = "<group>"; };
 		D062742E1C1DDB2000E6F07C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D091DF781C1AF25700310430 /* GooglePolylineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GooglePolylineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091DF7C1C1AF25700310430 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,7 +89,6 @@
 		D091DF8A1C1AF25700310430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D091DF8C1C1AF25700310430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D091DF911C1AF25800310430 /* GooglePolylineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GooglePolylineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D091DF951C1AF25800310430 /* GooglePolylineAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GooglePolylineAppTests.m; sourceTree = "<group>"; };
 		D091DF971C1AF25800310430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D091DF9C1C1AF25800310430 /* GooglePolylineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GooglePolylineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D091DFA01C1AF25800310430 /* GooglePolylineAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GooglePolylineAppUITests.m; sourceTree = "<group>"; };
@@ -94,8 +98,8 @@
 		D0A28D0E1C22FD4100C1C3DA /* NSDictionary+Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+Safe.h"; path = "Data/NSDictionary+Safe.h"; sourceTree = "<group>"; };
 		D0A28D0F1C22FD4100C1C3DA /* NSDictionary+Safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+Safe.m"; path = "Data/NSDictionary+Safe.m"; sourceTree = "<group>"; };
 		D0A28D121C23197100C1C3DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D0A28D191C2577F900C1C3DA /* UIColor+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Helper.h"; path = "UIHelpers/UIColor+Helper.h"; sourceTree = "<group>"; };
-		D0A28D1A1C2577F900C1C3DA /* UIColor+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Helper.m"; path = "UIHelpers/UIColor+Helper.m"; sourceTree = "<group>"; };
+		D0A28D1C1C281D6D00C1C3DA /* GPABoundingBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPABoundingBox.h; path = ModelTypes/GPABoundingBox.h; sourceTree = "<group>"; };
+		D0A28D1D1C281D6D00C1C3DA /* GPABoundingBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPABoundingBox.m; path = ModelTypes/GPABoundingBox.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,13 +148,13 @@
 		D0222AD61C1DDDBC00591B7F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D0222AD71C1DDDF900591B7F /* data.json */,
 				D0267B411C206D48003E751C /* GPARoute+Data.h */,
 				D0267B421C206D48003E751C /* GPARoute+Data.m */,
 				D0267B471C21BC12003E751C /* GPAProvider+Data.h */,
 				D0267B481C21BC12003E751C /* GPAProvider+Data.m */,
 				D0267B4A1C21C11A003E751C /* GPARouteSegment+Data.h */,
 				D0267B4B1C21C11A003E751C /* GPARouteSegment+Data.m */,
-				D0222AD71C1DDDF900591B7F /* data.json */,
 				D0A28D0E1C22FD4100C1C3DA /* NSDictionary+Safe.h */,
 				D0A28D0F1C22FD4100C1C3DA /* NSDictionary+Safe.m */,
 			);
@@ -168,6 +172,8 @@
 				D0267B3F1C2062EE003E751C /* GPARoute.m */,
 				D0267B441C21BB8E003E751C /* GPAProvider.h */,
 				D0267B451C21BB8E003E751C /* GPAProvider.m */,
+				D0A28D1C1C281D6D00C1C3DA /* GPABoundingBox.h */,
+				D0A28D1D1C281D6D00C1C3DA /* GPABoundingBox.m */,
 			);
 			name = ModelTypes;
 			sourceTree = "<group>";
@@ -196,7 +202,7 @@
 		D091DF7A1C1AF25700310430 /* GooglePolylineApp */ = {
 			isa = PBXGroup;
 			children = (
-				D0A28D181C2577CA00C1C3DA /* UIHelpers */,
+				D0A28D181C2577CA00C1C3DA /* Helpers */,
 				D0267B371C20473E003E751C /* ModelTypes */,
 				D0222AD61C1DDDBC00591B7F /* Data */,
 				D091DFAE1C1AF2A300310430 /* PolylineEncoding */,
@@ -229,7 +235,6 @@
 		D091DF941C1AF25800310430 /* GooglePolylineAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				D091DF951C1AF25800310430 /* GooglePolylineAppTests.m */,
 				D091DF971C1AF25800310430 /* Info.plist */,
 				D00D7CAC1C1AFEEA0048E615 /* GPAPolylineEncodingTests.m */,
 			);
@@ -254,13 +259,15 @@
 			name = PolylineEncoding;
 			sourceTree = "<group>";
 		};
-		D0A28D181C2577CA00C1C3DA /* UIHelpers */ = {
+		D0A28D181C2577CA00C1C3DA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D0A28D191C2577F900C1C3DA /* UIColor+Helper.h */,
-				D0A28D1A1C2577F900C1C3DA /* UIColor+Helper.m */,
+				D058F2761C36BDBD00231EF1 /* UIColor+Helper.h */,
+				D058F2771C36BDBD00231EF1 /* UIColor+Helper.m */,
+				D058F2791C37EBBC00231EF1 /* GPACoordinate+Converter.h */,
+				D058F27A1C37EBBC00231EF1 /* GPACoordinate+Converter.m */,
 			);
-			name = UIHelpers;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,16 +406,18 @@
 				D0267B401C2062EE003E751C /* GPARoute.m in Sources */,
 				D0267B431C206D48003E751C /* GPARoute+Data.m in Sources */,
 				D0A28D101C22FD4100C1C3DA /* NSDictionary+Safe.m in Sources */,
+				D058F27B1C37EBBC00231EF1 /* GPACoordinate+Converter.m in Sources */,
 				D091DF801C1AF25700310430 /* AppDelegate.m in Sources */,
 				D091DF7D1C1AF25700310430 /* main.m in Sources */,
 				D0267B3A1C204794003E751C /* GPARouteSegment.m in Sources */,
 				D0267B3D1C204D27003E751C /* GPACoordinate.m in Sources */,
 				D0267B4C1C21C11A003E751C /* GPARouteSegment+Data.m in Sources */,
-				D0A28D1B1C2577F900C1C3DA /* UIColor+Helper.m in Sources */,
+				D058F2781C36BDBD00231EF1 /* UIColor+Helper.m in Sources */,
 				D0222ADE1C1DDF5A00591B7F /* MainTableViewController.m in Sources */,
 				D0267B491C21BC12003E751C /* GPAProvider+Data.m in Sources */,
 				D091DFB11C1AF31000310430 /* GPAPolylineEncoding.m in Sources */,
 				D0222B291C1DF9EC00591B7F /* MapViewController.m in Sources */,
+				D0A28D1E1C281D6E00C1C3DA /* GPABoundingBox.m in Sources */,
 				D0267B461C21BB8E003E751C /* GPAProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +426,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D091DF961C1AF25800310430 /* GooglePolylineAppTests.m in Sources */,
 				D00D7CAD1C1AFEEA0048E615 /* GPAPolylineEncodingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
