@@ -11,6 +11,10 @@
 #import "GPACoordinate.h"
 #import "Helpers/UIColor+Helper.h"
 #import "GPACoordinate+Converter.h"
+#import "GPASegmentVizualizerViewController.h"
+#import "GPAStop.h"
+#import "UIColor+Helper.h"
+#import "NSDate+Converter.h"
 
 @interface GPAMapViewController () <MKMapViewDelegate>
 
@@ -20,6 +24,7 @@
 @property (nonatomic, strong) NSMutableArray<UIColor*>* colors;
 
 @property (nonatomic, strong) NSMutableArray *annotations;
+@property (weak, nonatomic) IBOutlet UIStackView *bottomStackView;
 
 @end
 
@@ -31,6 +36,7 @@
     
     self.mapView.delegate = self;
     [self drawRoute];
+    [self setupBottomStackView];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -52,6 +58,33 @@
             [self.polylines addObject:polyline];
             [self.colors addObject:[UIColor colorFromHexString:segment.color]];
             [self.mapView addOverlay:polyline];
+        }
+    }
+}
+
+- (void)setupBottomStackView {
+    
+    for (GPARouteSegment *segment in self.route.segments) {
+        
+        NSString *guidanceString = segment.travelMode;
+        
+        for (int i = 0; i < segment.stops.count; i++) {
+            
+            GPAStop *stop = segment.stops[i];
+            GPASegmentVizualizerViewController * segmentVizualizerVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SegmentVizualizer"];
+            
+            [self.bottomStackView addArrangedSubview:segmentVizualizerVC.view];
+            
+            //todo: remove this with something proper
+            NSString *fallbackString = i <segment.stops.count-1 ? [NSString stringWithFormat:@"Start walking towards %@", segment.stops[i+1].stopName] :  @"Unknown address";
+            segmentVizualizerVC.nameLabel.text = stop.stopName ? [NSString stringWithFormat:@"%@: %@",guidanceString, stop.stopName] : fallbackString;
+            
+            segmentVizualizerVC.dateLabel.text = [NSDate formatStringFromDate:stop.dateTime];
+            segmentVizualizerVC.view.backgroundColor = [UIColor colorFromHexString: segment.color];
+            [segmentVizualizerVC.view.heightAnchor constraintEqualToConstant:50].active = true;
+            [segmentVizualizerVC.view.widthAnchor constraintEqualToConstant:250].active = true;
+            
+            [segmentVizualizerVC.view layoutSubviews];
         }
     }
 }

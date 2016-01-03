@@ -6,6 +6,7 @@
 //
 
 #import "GPARouteSegment+Data.h"
+#import "GPAStop+Data.h"
 #import "GPACoordinate.h"
 #import "GPAPolylineEncoding.h"
 
@@ -14,9 +15,12 @@
 @interface GPARouteSegment (Private)
 
 @property (nonatomic, strong, readwrite) NSArray<GPACoordinate *> *coordinates;
+@property (nonatomic, strong, readwrite) NSArray<GPAStop *> *stops;
 @property (nonatomic, strong, readwrite) NSString *color;
 @property (nonatomic, strong, readwrite) NSString *segmentName;
 @property (nonatomic, strong, readwrite) NSString *travelMode;
+@property (nonatomic, strong, readwrite) NSString *segmentDescription;
+
 
 @end
 
@@ -24,17 +28,30 @@
 
 + (GPARouteSegment *)segmentWithData:(NSDictionary *)data {
     GPARouteSegment *routeSegment = [[GPARouteSegment alloc]init];
-    routeSegment.coordinates = [GPARouteSegment rawDataToCoordinates: [data safeObjectForKey:@"polyline"]];
+    routeSegment.coordinates = [GPARouteSegment dataToCoordinates: [data safeObjectForKey:@"polyline"]];
+    routeSegment.stops = [GPARouteSegment dataToStops: [data safeObjectForKey:@"stops"]];
     routeSegment.color = [data safeObjectForKey:@"color"];
     routeSegment.segmentName = [data safeObjectForKey:@"name"];
     routeSegment.travelMode = [data safeObjectForKey:@"travel_mode"];
+    routeSegment.segmentDescription = [data safeObjectForKey:@"description"];
     
     return routeSegment;
 }
 
-+(NSArray *)rawDataToCoordinates:(NSString *)rawData {
++(NSArray<GPAStop *> *)dataToStops:(NSArray *)data {
+    NSMutableArray<GPAStop *> *stops = [[NSMutableArray alloc] init];
     
-    NSArray *polylineElements = [GPAPolylineEncoding decodePolyline:rawData];
+    for (NSDictionary *dict in data) {
+        GPAStop *stop = [GPAStop stopWithData:dict];
+        [stops addObject:stop];
+    }
+    
+    return stops;
+}
+
++(NSArray<GPACoordinate *> *)dataToCoordinates:(NSString *)data {
+    
+    NSArray *polylineElements = [GPAPolylineEncoding decodePolyline:data];
     
     if (!polylineElements || polylineElements.count < 2 || polylineElements.count % 2) {
         return nil;

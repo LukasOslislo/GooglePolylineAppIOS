@@ -12,6 +12,8 @@
 #import "GPARouteSegment.h"
 #import "GPAPolylineEncoding.h"
 #import "GPAProvider.h"
+#import "GPAStop.h"
+#import "UIImage+RouteType.h"
 
 @interface GPAMainTableViewController ()
 
@@ -49,13 +51,22 @@
     return self.routes.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.0f;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GPARouteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"routeCell" forIndexPath:indexPath];
     GPARoute *route = self.routes[indexPath.row];
-    cell.routeNameLabel.text = route.provider.name;
-    cell.routeProvider.text = [GPARoute stringFromRouteType:route.routeType];
+
+    GPARouteSegment *lastSegment = route.segments.lastObject;
+    GPAStop *lastStop = lastSegment.stops.lastObject;
+    
+    cell.routeDestinationLabel.text = lastStop.stopName;
+    cell.routeProvider.text = route.provider.name;
+    cell.routeTypeLabel.text = [GPARoute stringFromRouteType:route.routeType];
     cell.routePriceLabel.text = route.price;
+    cell.routeImage.image = [UIImage imageFromRouteType:route.routeType];
     
     return cell;
 }
