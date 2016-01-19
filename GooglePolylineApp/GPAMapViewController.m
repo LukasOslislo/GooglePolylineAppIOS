@@ -15,32 +15,37 @@
 #import "GPAStop.h"
 #import "UIColor+Helper.h"
 #import "NSDate+Converter.h"
+#import <Mapbox/Mapbox.h>
 
-@interface GPAMapViewController () <MKMapViewDelegate>
+@interface GPAMapViewController () <MGLMapViewDelegate>
+@property (weak, nonatomic) IBOutlet UIView *mapBoxView;
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
-@property (nonatomic, strong) NSMutableArray<MKPolyline *>* polylines;
+@property (nonatomic, strong) NSMutableArray<MGLPolyline *>* polylines;
 @property (nonatomic, strong) NSMutableArray<UIColor*>* colors;
 
-@property (nonatomic, strong) NSMutableArray *annotations;
+@property (nonatomic, strong) NSMutableArray<MGLPointAnnotation *> *annotations;
 @property (weak, nonatomic) IBOutlet UIStackView *bottomStackView;
+@property (nonatomic, strong) MGLMapView *mapView;
 
 @end
 
 @implementation GPAMapViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.mapView = [[MGLMapView alloc] initWithFrame:self.mapBoxView.bounds];
+    [self.mapBoxView addSubview:self.mapView];
+    self.mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.mapView.delegate = self;
+    
     [self drawRoute];
     [self setupBottomStackView];
+    [self focusRoute];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [self focusRoute];
+
 }
 
 - (void)drawRoute {
@@ -54,7 +59,7 @@
     
     for (GPARouteSegment *segment in self.route.segments) {
         if (segment.coordinates.count >= 2) {
-            MKPolyline *polyline = [self polylineWithSegment:segment];
+            MGLPolyline *polyline = [self polylineWithSegment:segment];
             [self.polylines addObject:polyline];
             [self.colors addObject:[UIColor colorFromHexString:segment.color]];
             [self.mapView addOverlay:polyline];
@@ -90,7 +95,9 @@
 }
 
 - (void)focusRoute {
-    [self.mapView showAnnotations:self.mapView.annotations animated:NO];
+    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(52.509663, 13.390481)
+                       zoomLevel:12.1
+                        animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,25 +105,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+- (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(nonnull MGLShape *)annotation {
+
+        if ([annotation isKindOfClass:[MGLPolyline class]]) {
     
-    if ([overlay isKindOfClass:[MKPolyline class]]) {
-        
-        MKPolyline *polyline = overlay;
-        
-        NSUInteger index = [self.polylines indexOfObject:polyline];
-        
-        MKPolylineRenderer *lineView = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
-        lineView.strokeColor = self.colors[index];
-        
-        
-        return lineView;
-    }
+            MGLPolyline *polyline = (MGLPolyline *)annotation;
+            NSUInteger index = [self.polylines indexOfObject:polyline];
     
-    return nil;
+            return self.colors[index];
+        }
+        
+        return nil;
 }
 
-- (MKPolyline *)polylineWithSegment:(GPARouteSegment *)segment {
+// Always show a callout when an annotation is tapped.
+- (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id <MGLAnnotation>)annotation {
+    return YES;
+}
+
+- (MGLPolyline *)polylineWithSegment:(GPARouteSegment *)segment {
     
     NSUInteger coordinateArrayLength = segment.coordinates.count;
     if (coordinateArrayLength < 2) {
@@ -134,15 +141,16 @@
             
             NSString *nameAddition = i == 0 ? @"START" : @"END";
             
-            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+            MGLPointAnnotation *annotation = [[MGLPointAnnotation alloc] init];
             [annotation setCoordinate:coordinate.location];
             [annotation setTitle: [NSString stringWithFormat:@"%@ - %@", segment.travelMode, nameAddition]];
             [annotation setSubtitle:segment.segmentName];
+            [self.annotations addObject:annotation];
             [self.mapView addAnnotation:annotation];
         }
     }
     
-    MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinateArray count:coordinateArrayLength];
+    MGLPolyline *polyline = [MGLPolyline polylineWithCoordinates:coordinateArray count:coordinateArrayLength];
 
     return polyline;
 }
